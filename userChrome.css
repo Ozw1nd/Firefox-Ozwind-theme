@@ -1,0 +1,110 @@
+/* Larger avatar picture */
+#fxa-avatar-image {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+/* Transparent window background */
+:root[windowtype="navigator:browser"],
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --uc-accent-opacity: 80%;
+    background-color: transparent !important;
+    --uc-window-bg-color: var(--lwt-accent-color);
+    --uc-window-bg: color-mix(in srgb, var(--uc-window-bg-color) var(--uc-accent-opacity), transparent);
+    @media (prefers-color-scheme:light) {
+        --uc-accent-opacity: 80%;
+    }
+}
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    & #navigator-toolbox {
+        --toolbar-bg: transparent !important;
+        --toolbar-bgcolor: transparent !important;
+    }
+}
+
+/* Transparent selected tab background with accent color */
+:root #TabsToolbar-customization-target{
+    --tab-selected-bgcolor: light-dark(rgba(49,163,84,0.8),rgba(49,163,84,0.8)) !important;
+    
+}
+
+/* Tab bar settings */
+:root {
+  --tab-border-radius: 10px !important;   /* makes tabs rounded */
+  --toolbarbutton-border-radius: 10px !important; /*makes floorp icon in toolbar rounded */
+  --tab-min-height: 20px !important;
+  --tab-block-margin: 2px !important;
+}
+
+/* Personal bookmarks transparency */
+#personal-bookmarks {
+    opacity: var(--uc-accent-opacity) !important;
+}
+
+/* Disable transparency when going fullscreen */
+:root[sizemode="fullscreen"] {
+    #navigator-toolbox,
+    #browser,
+    #appcontent {
+        background-color: var(--uc-window-bg-color) !important;    
+    }
+}
+
+/* Inactive window transparency */
+:root #TabsToolbar,
+:root #titlebar,
+:root #tabbrowser-tabs,
+:root #nav-bar,
+:root #PersonalToolbar,
+:root #tab-notification-deck,
+:root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
+    -moz-default-appearance: menupopup !important;
+    appearance: auto !important;
+    background-color: transparent !important;
+}
+:root[sizemode="normal"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox,
+:root[sizemode="maximized"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox, 
+#appcontent {
+    background-color: var(--uc-window-bg) !important;
+}
+#browser:-moz-window-inactive,
+#navigator-toolbox:-moz-window-inactive,
+#navigator-toolbox:not(:-moz-lwtheme) {
+    &:-moz-window-inactive {
+        background-color: var(--uc-window-bg-color) !important;
+    }
+}
+
+/* Findbar setting */
+.browserContainer > findbar {
+    &:-moz-lwtheme{
+    background-image:none !important;
+    background-color:none !important;
+}
+}
+
+/* Sidebar transparency */
+#sidebar-box {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    background-color: var(--uc-window-bg) !important;
+}
+#sidebar-splitter {
+    opacity: 0.8;
+    border-width: 0px !important;
+}
+
+/* URL bar transparency and color */
+#urlbar-background,
+#searchbar {
+    opacity: 0.8 !important;
+    background-color: var( --uc-window-bg) !important;
+    min-height: 20px !important;
+    border-radius: 10px !important;
+    border-color: light-dark(rgba(49,163,84,0.8),rgba(49,163,84,0.8)) !important;
+    border-width: 1px !important;
+}
+#urlbar[breakout][breakout-extend] #urlbar-background {
+    opacity: 0.8 !important;
+    background-color: var(--uc-window-bg-color) !important;
+}
