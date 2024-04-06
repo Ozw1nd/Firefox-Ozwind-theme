@@ -1,0 +1,11 @@
+# KDE folder parameters
+.directory
+
+# Mac folder parametres
+.DS_Store
+
+#System trash
+.trash/
+
+# Mega temp files
+.debris
